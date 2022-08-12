@@ -20,7 +20,7 @@ const Navbar = () => {
 
   return (
     <div className={color ? "header header-bg" : "header"}>
-      <h1>Bryan Wilkerson</h1>
+      <h1>React Arcade</h1>
       <ul className={click ? "nav-menu-active" : "nav-menu"}>
         <li>
           <Link to="/">Home</Link>
