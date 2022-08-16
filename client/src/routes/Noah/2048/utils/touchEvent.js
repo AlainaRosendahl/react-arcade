@@ -11,18 +11,18 @@ export function getDirection(e, prevPosition) {
     const xyDiff = Math.abs(xDiff) - Math.abs(yDiff);
     let direction = null;
     if (xyDiff > 0) {
-        if (xDiff + 20 < 0) {//left
+        if (xDiff + 15 < 0) {//left
             direction = 1;
         }
-        else if (xDiff - 20 > 0) { //right
+        else if (xDiff - 15 > 0) { //right
             direction = -1;
         }
     }
     else if (xyDiff < 0) {
-        if (yDiff + 20 < 0) { //up
+        if (yDiff + 15 < 0) { //up
             direction = BOARD_SIZE;
         }
-        else if (yDiff - 20 > 0) { //down
+        else if (yDiff - 15 > 0) { //down
             direction = -BOARD_SIZE;
         }
     }
