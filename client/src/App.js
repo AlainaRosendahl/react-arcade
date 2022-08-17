@@ -1,7 +1,7 @@
 import "./index.css";
 import Home from "./routes/Home";
 import Noah from "./routes/Noah"; //Make sure to update route whenever changes are made.//
-import Alaina from "./routes/Alaina";
+import Alaina from "../src/routes/Alaina/Alaina";
 import Bryan from "./routes/Bryan";
 
 import { Route, Routes } from "react-router-dom";
