@@ -4,6 +4,7 @@ import { BOARD_SIZE } from "../constants";
 const defaultArray = Array(BOARD_SIZE * BOARD_SIZE).fill(0);
 
 export default function GridContainer() {
+    
     return (
         <GridWrap boardSize={BOARD_SIZE}>
             {defaultArray.map((row, index) =>

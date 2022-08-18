@@ -1,6 +1,7 @@
 import styled, { css, keyframes } from "styled-components";
 import { BOARD_SIZE } from "../constants";
 import { Cell } from "../styles/Cells";
+
 export default function TileContainer({ numbers, beRemovedTiles }) {
   return (
     <TileWrap>
@@ -23,7 +24,7 @@ const TileWrap = styled.div`
   position: absolute;
   z-index:1;
 `;
-
+ //Yay colors//
 const colors = {
   2: { background: '#F4EEFF', color: '#9186c6' },
   4: { background: '#ccc3f4', color: '#4a3e80' },
