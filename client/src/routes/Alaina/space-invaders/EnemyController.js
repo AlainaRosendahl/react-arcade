@@ -1,3 +1,5 @@
+import Enemy from "./Enemy";
+
 export default class EnemyController {
     enemyMap = [
         [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
@@ -13,7 +15,15 @@ export default class EnemyController {
         this.createEnemies();
     }
 
-    draw(ctx) {}
+    draw(ctx) {
+        this.drawEnemies(ctx);
+    }
+
+    drawEnemies(ctx) {
+        this.enemyRows.flat().forEach((enemy)=>{
+            enemy.draw(ctx);
+        });
+    }
 
     createEnemies(){
         this.enemyMap.forEach((row, rowIndex)=>{
