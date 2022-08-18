@@ -3,20 +3,15 @@ import styled from "styled-components";
 import { Header, GameBoard } from './2048/components';
 import { BEST_SCORE_KEY } from "./2048/constants";
 import GlobalStyle from "./2048/styles/GlobalStyle";
-// import Home from "../Alaina";
-// import Alaina from "../Home";
-// import Bryan from "../Bryan";
-// import { Route, Routes } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "../../components/Nav/NavStyles.css";
-// import Navbar from "../../components/Nav/Nav";
 
 function Noah() {
   const [score, setScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
   const [reset, setReset] = useState(false);
   const [click, setClick] = useState(false);
-  // const handleClick = () => setClick(!click);
+  const handleClick = () => setClick(!click);
   useEffect(() => {
     if (bestScore < score) {
       setBestScore(score);

@@ -8,7 +8,6 @@ import { Route, Routes } from "react-router-dom";
 
 function App() {
   return (
-    <h1>React Arcade</h1>,
     <>
       <Routes>
         <Route path="/" element={<Home />}></Route>
