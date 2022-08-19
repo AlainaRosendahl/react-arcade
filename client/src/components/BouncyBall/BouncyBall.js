@@ -11,18 +11,25 @@ const jumpHeight = 100;
 const wallWidth = 40;
 const wallGap = 200;
 
+const INITIAL_BALL_POSITION = 450;
+const INITIAL_START_GAME = false;
+const INITIAL_WALL_HEIGHT = 100;
+const INITIAL_WALL_LEFT = GameWidth - wallWidth;
+const INITIAL_SCORE = 0;
+const GAME_PADDING = 200;
+
 const BouncyBall = () => {
-  const [ballPosition, setBallPosition] = useState(250);
-  const [startGame, setStartGame] = useState(false);
-  const [wallHeight, setWallHeight] = useState(100);
-  const [wallLeft, setWallLeft] = useState(GameWidth - wallWidth);
-  const [score, setScore] = useState(0);
+  const [ballPosition, setBallPosition] = useState(INITIAL_BALL_POSITION);
+  const [startGame, setStartGame] = useState(INITIAL_START_GAME);
+  const [wallHeight, setWallHeight] = useState(INITIAL_WALL_HEIGHT);
+  const [wallLeft, setWallLeft] = useState(INITIAL_WALL_LEFT);
+  const [score, setScore] = useState(INITIAL_SCORE);
 
   const bottomWallHeight = GameHeight - wallGap - wallHeight;
 
   useEffect(() => {
     let timeId;
-    if (startGame && ballPosition < GameHeight - ballSize) {
+    if (startGame && ballPosition < GameHeight + GAME_PADDING - ballSize) {
       timeId = setInterval(() => {
         setBallPosition((ballPosition) => ballPosition + ballDrop);
       }, 24);
@@ -38,42 +45,50 @@ const BouncyBall = () => {
     if (startGame && wallLeft >= -wallWidth) {
       wallId = setInterval(() => {
         setWallLeft((wallLeft) => wallLeft - 5);
-      }, 24);
+      });
 
       return () => {
         clearInterval(wallId);
       };
-    } else {
-      setWallLeft(GameWidth - wallHeight);
+    } else if (startGame) {
+      setWallLeft(GameWidth - wallWidth);
       setWallHeight(Math.floor(Math.random() * (GameHeight - wallGap)));
       setScore(score + 1);
     }
   }, [startGame, wallLeft, score, wallHeight]);
 
+  // walls are changing gaps before game has started
   useEffect(() => {
-    const hasHitTopWall = ballPosition >= 0 && ballPosition < wallHeight;
+    const hasHitTopWall =
+      ballPosition >= 0 && ballPosition < wallHeight + GAME_PADDING;
     const hasHitBottomWall =
-      ballPosition <= 500 && ballPosition >= 500 - bottomWallHeight;
+      ballPosition <= GameHeight + GAME_PADDING &&
+      ballPosition >= GameHeight + GAME_PADDING - bottomWallHeight;
 
     if (
       wallLeft >= 0 &&
       wallLeft <= wallWidth &&
       (hasHitTopWall || hasHitBottomWall)
     ) {
-      setStartGame(false);
+      // reset the game
+      setBallPosition(INITIAL_BALL_POSITION);
+      setStartGame(INITIAL_START_GAME);
+      setWallHeight(INITIAL_WALL_HEIGHT);
+      setWallLeft(INITIAL_WALL_LEFT);
+      setScore(INITIAL_SCORE);
     }
   }, [ballPosition, wallHeight, bottomWallHeight, wallLeft]);
 
+  //ball is still going above game
   const handleClick = () => {
     let newBallPosition = ballPosition - jumpHeight;
     if (!startGame) {
       setStartGame(true);
-    } else if (newBallPosition < 0) {
-      newBallPosition(0);
+    } else if (newBallPosition < GAME_PADDING) {
+      setBallPosition(GAME_PADDING);
     } else {
       setBallPosition(newBallPosition);
     }
-    setBallPosition(newBallPosition);
   };
 
   return (
@@ -107,6 +122,7 @@ const Ball = sc.div`
 const Div = sc.div`
     display: flex;
     width: 100%;
+    padding-top: 200px;
     justify-content: center;
     & span {
        color: white;
