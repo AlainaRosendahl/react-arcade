@@ -1,9 +1,10 @@
 import './App.css'
 import React from "react";
 import SingleCard from './components/SingleCard';
+import { useState } from 'react';
 
 const cardImages = [
-  { src: "/img/sad-cat.png" },
+  { src: "./img/sad-cat.png" },
   { src: "/img/spongebob.png" },
   { src: "/img/spongebob2.png" },
   { src: "/img/what.png" },
@@ -33,7 +34,7 @@ const MemeMemory = () => {
     <div className="App">
       <h1>Meme Match</h1>
       <button onClick={shuffleCards}>New Game</button>
-      <div classname= "card-grid">
+      <div className= "card-grid">
         {cards.map(card =>(
           <SingleCard key={card.id} card={card} />
           ))}
