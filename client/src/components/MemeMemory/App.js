@@ -4,7 +4,7 @@ import SingleCard from './components/SingleCard';
 import { useState } from 'react';
 
 const cardImages = [
-  { src: "./img/sad-cat.png" },
+  { src: "/img/sad-cat.png" },
   { src: "/img/spongebob.png" },
   { src: "/img/spongebob2.png" },
   { src: "/img/what.png" },
