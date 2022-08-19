@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./NavStyles.css";
 import { FaBars, FaTimes } from "react-icons/fa";
+import LoginForm from '../LoginForm';
+import SignUpForm from '../SignupForm';
 
 const Navbar = () => {
   const [click, setClick] = useState(false);
