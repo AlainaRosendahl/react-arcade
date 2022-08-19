@@ -10,8 +10,8 @@ function Noah() {
   const [score, setScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
   const [reset, setReset] = useState(false);
-  const [click, setClick] = useState(false);
-  const handleClick = () => setClick(!click);
+  const [click] = useState(false);
+  
   useEffect(() => {
     if (bestScore < score) {
       setBestScore(score);
