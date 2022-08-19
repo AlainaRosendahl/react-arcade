@@ -8,9 +8,11 @@ import { getRow, getColumn, getNewTile, isChanged, checkAllValueIsTrue, combineT
 const defaultArray = Array(BOARD_SIZE * BOARD_SIZE).fill(0);
 
 function getMaxNumber(numbers) {
+
     return Math.max.apply(Math, numbers.map(tile => tile.number || 0));
 }
 export default function GameBoard({ score, setScore, setBestScore, reset, setReset }) {
+
     const [gameModal, setGameModal] = useState(null);
     const [numbers, setNumbers] = useState(defaultArray);
     const [prevPosition, setPrevPosition] = useState({});
@@ -42,6 +44,7 @@ export default function GameBoard({ score, setScore, setBestScore, reset, setRes
                 slideTiles(direction);
         }
         window.addEventListener('keydown', handleKeyDown);
+
         return () => window.removeEventListener('keydown', handleKeyDown);
     }, [slideTiles]);
 
@@ -82,6 +85,7 @@ export default function GameBoard({ score, setScore, setBestScore, reset, setRes
     }, [reset])
 
     function setGameState(gameState) {
+
         if (gameState !== 1) {
             let message = 'You Win!';
             let button = <button className="btn-continue" onClick={() => setGameModal(null)}>Continue</button>;
@@ -102,6 +106,7 @@ export default function GameBoard({ score, setScore, setBestScore, reset, setRes
     }
 
     function getGameState() {
+
         const isBoardFull = checkAllValueIsTrue(numbers);
         const maxNumber = getMaxNumber(numbers);
         const isCombinable = checkIsCombinable(numbers);
@@ -115,16 +120,19 @@ export default function GameBoard({ score, setScore, setBestScore, reset, setRes
     }
 
     function slide(direction) {
+
         let newArray = Array(BOARD_SIZE * BOARD_SIZE).fill(0);
         const isUpDown = Math.abs(direction) > 1;
         let combinedArray = [];
         let totalAddedScore = 0;
+
         for (var index = 0; index < BOARD_SIZE; index++) {
             const basePosition = isUpDown ? { row: 0, col: index } : { row: getRow(index * BOARD_SIZE), col: 0 };
             let line = getLine(basePosition, isUpDown);
             const missing = BOARD_SIZE - line.length;
             const zeros = Array(missing).fill(0);
             line = direction > 0 ? line.concat(zeros) : zeros.concat(line);
+
             if (zeros.length < BOARD_SIZE) {
                 const rootIndex = isUpDown ? basePosition.col : basePosition.row;
                 const { movedArray, combinedRowArray, interimScore } = combineTile({ line, isUpDown, resultArray: newArray, direction, rootIndex });
@@ -133,7 +141,9 @@ export default function GameBoard({ score, setScore, setBestScore, reset, setRes
                 combinedArray = combinedArray.concat(combinedRowArray);
             }
         }
+
         return { newArray, combinedArray, totalAddedScore };
+        
     }
 
     function handleTouchStart(e) {
