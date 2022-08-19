@@ -1,5 +1,4 @@
 import React from "react";
-import "./bb.css";
 import sc from "styled-components";
 import { useEffect, useState } from "react";
 
@@ -57,10 +56,9 @@ const BouncyBall = () => {
     }
   }, [startGame, wallLeft, score, wallHeight]);
 
-  // walls are changing gaps before game has started
   useEffect(() => {
     const hasHitTopWall =
-      ballPosition >= 0 && ballPosition < wallHeight + GAME_PADDING;
+      ballPosition >= GAME_PADDING && ballPosition < wallHeight + GAME_PADDING;
     const hasHitBottomWall =
       ballPosition <= GameHeight + GAME_PADDING &&
       ballPosition >= GameHeight + GAME_PADDING - bottomWallHeight;
@@ -79,7 +77,6 @@ const BouncyBall = () => {
     }
   }, [ballPosition, wallHeight, bottomWallHeight, wallLeft]);
 
-  //ball is still going above game
   const handleClick = () => {
     let newBallPosition = ballPosition - jumpHeight;
     if (!startGame) {
@@ -92,19 +89,22 @@ const BouncyBall = () => {
   };
 
   return (
-    <Div>
-      <Game onClick={handleClick} height={GameHeight} width={GameWidth}>
-        <Wall top={0} width={wallWidth} height={wallHeight} left={wallLeft} />
-        <Wall
-          top={GameHeight - (wallHeight + bottomWallHeight)}
-          width={wallWidth}
-          height={bottomWallHeight}
-          left={wallLeft}
-        />
-        <Ball size={ballSize} top={ballPosition} />
-      </Game>
-      <span> {score} </span>
-    </Div>
+    <div>
+      <H1>Bouncy Ball</H1>
+      <GameContainer>
+        <Game onClick={handleClick} height={GameHeight} width={GameWidth}>
+          <Wall top={0} width={wallWidth} height={wallHeight} left={wallLeft} />
+          <Wall
+            top={GameHeight - (wallHeight + bottomWallHeight)}
+            width={wallWidth}
+            height={bottomWallHeight}
+            left={wallLeft}
+          />
+          <Ball size={ballSize} top={ballPosition} />
+        </Game>
+        <span> {score} </span>
+      </GameContainer>
+    </div>
   );
 };
 
@@ -119,10 +119,10 @@ const Ball = sc.div`
     border-radius: 50%;
 `;
 
-const Div = sc.div`
+const GameContainer = sc.div`
     display: flex;
     width: 100%;
-    padding-top: 200px;
+    padding-top: 50px;
     justify-content: center;
     & span {
        color: white;
@@ -145,4 +145,9 @@ const Wall = sc.div`
     width: ${(props) => props.width}px;
     height: ${(props) => props.height}px;
     left: ${(props) => props.left}px;
+`;
+const H1 = sc.div`
+    display: flex;
+    justify-content: center;
+    padding-top: 130px;
 `;
