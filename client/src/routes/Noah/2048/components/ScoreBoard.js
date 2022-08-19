@@ -22,7 +22,7 @@ const Board = styled.div`
     justify-content: space-between;
     & div{
         border-radius: 4px;
-        background-color: #8b85bb;
+        background-color: #Black;
         padding: 1rem;
         font-weight: bold;
         text-align: center;
@@ -34,7 +34,7 @@ const Board = styled.div`
             font-size: 1.2rem;
         }
         & p{
-            color: white;
+            color: Orange;
             font-size: 2rem;
         }
         &:last-child{
