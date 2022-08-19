@@ -1,13 +1,13 @@
-import './SingleCard.css'
-import cover from "../../../assets/img/cover.png";
-export default function SingleCard({ card }) {
+import "./SingleCard.css";
+import cover from "../../../assets/img/sad-cat.png";
 
-    return(
-        <div className="card">
-          <div>
-        <img className="front" src={card.src} alt="card front"></img>
+export default function SingleCard({ card }) {
+  return (
+    <div className="card">
+      <div>
+        <img className="front" src="" alt="card front"></img>
         <img className="back" src={cover} alt="card back" />
-          </div>
-          </div>
-    )
+      </div>
+    </div>
+  );
 }
