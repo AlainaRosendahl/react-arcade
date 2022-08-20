@@ -16,6 +16,7 @@ const INITIAL_WALL_HEIGHT = 100;
 const INITIAL_WALL_LEFT = GameWidth - wallWidth;
 const INITIAL_SCORE = 0;
 const GAME_PADDING = 200;
+const INITIAL_WALL_SPEED = 5;
 
 const BouncyBall = () => {
   const [ballPosition, setBallPosition] = useState(INITIAL_BALL_POSITION);
@@ -23,38 +24,54 @@ const BouncyBall = () => {
   const [wallHeight, setWallHeight] = useState(INITIAL_WALL_HEIGHT);
   const [wallLeft, setWallLeft] = useState(INITIAL_WALL_LEFT);
   const [score, setScore] = useState(INITIAL_SCORE);
+  const [wallSpeed, setWallSpeed] = useState(INITIAL_WALL_SPEED);
 
   const bottomWallHeight = GameHeight - wallGap - wallHeight;
 
   useEffect(() => {
-    let timeId;
+    let time;
     if (startGame && ballPosition < GameHeight + GAME_PADDING - ballSize) {
-      timeId = setInterval(() => {
+      time = setInterval(() => {
         setBallPosition((ballPosition) => ballPosition + ballDrop);
       }, 24);
     }
 
     return () => {
-      clearInterval(timeId);
+      clearInterval(time);
     };
   }, [ballPosition, startGame]);
 
   useEffect(() => {
-    let wallId;
-    if (startGame && wallLeft >= -wallWidth) {
-      wallId = setInterval(() => {
-        setWallLeft((wallLeft) => wallLeft - 5);
-      });
-
-      return () => {
-        clearInterval(wallId);
-      };
-    } else if (startGame) {
-      setWallLeft(GameWidth - wallWidth);
-      setWallHeight(Math.floor(Math.random() * (GameHeight - wallGap)));
-      setScore(score + 1);
+    if (score <= 2) {
+      setWallSpeed(5);
+    } else if (score > 2 && score <= 4) {
+      setWallSpeed(6);
+    } else if (score > 4) {
+      setWallSpeed(20);
     }
-  }, [startGame, wallLeft, score, wallHeight]);
+  }, [wallSpeed, score]);
+
+  useEffect(
+    () => {
+      let wall;
+
+      if (startGame && wallLeft >= -wallWidth) {
+        wall = setInterval(() => {
+          setWallLeft((wallLeft) => wallLeft - wallSpeed);
+        }, 24);
+
+        return () => {
+          clearInterval(wall);
+        };
+      } else if (startGame) {
+        setWallLeft(GameWidth - wallWidth);
+        setWallHeight(Math.floor(Math.random() * (GameHeight - wallGap)));
+        setScore(score + 1);
+      }
+    },
+    [startGame, wallLeft, score, wallHeight, wallSpeed],
+    24
+  );
 
   useEffect(() => {
     const hasHitTopWall =
