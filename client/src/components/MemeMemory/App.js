@@ -1,7 +1,7 @@
-import './App.css'
+import "./App.css";
 import React from "react";
-import SingleCard from './components/SingleCard';
-import { useState } from 'react';
+import SingleCard from "./components/SingleCard";
+import { useState } from "react";
 
 const cardImages = [
   { src: "./img/sad-cat.png" },
@@ -13,34 +13,32 @@ const cardImages = [
 ];
 
 const MemeMemory = () => {
+  const [cards, setCards] = useState([]);
+  const [turns, setTurns] = useState(0);
 
-  const [cards, setCards] = useState([])
-  const [turns, setTurns] = useState(0)
-    
   //shuffle cards
-    const shuffleCards= () =>{
-      const shuffledCards = [...cardImages, ...cardImages]
-      .sort(()=>Math.random() - 0.5)
-      .map((card) => ({ ...card, id: Math.random() }))
-  
-      setCards(shuffledCards)
-      setTurns(0)
-     }
+  const shuffleCards = () => {
+    const shuffledCards = [...cardImages, ...cardImages]
+      .sort(() => Math.random() - 0.5)
+      .map((card) => ({ ...card, id: Math.random() }));
 
-     console.log(cards, turns)
+    setCards(shuffledCards);
+    setTurns(0);
+  };
 
+  console.log(cards, turns);
 
   return (
     <div className="App">
       <h1>Meme Match</h1>
       <button onClick={shuffleCards}>New Game</button>
-      <div className= "card-grid">
-        {cards.map(card =>(
+      <div className="card-grid">
+        {cards.map((card) => (
           <SingleCard key={card.id} card={card} />
-          ))}
+        ))}
       </div>
     </div>
   );
 };
 
- export default MemeMemory;
+export default MemeMemory;
