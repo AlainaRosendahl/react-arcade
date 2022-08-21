@@ -16,7 +16,7 @@ const INITIAL_WALL_HEIGHT = 100;
 const INITIAL_WALL_LEFT = GameWidth - wallWidth;
 const INITIAL_SCORE = 0;
 const GAME_PADDING = 200;
-const INITIAL_WALL_SPEED = 5;
+const INITIAL_WALL_SPEED = 10;
 
 const BouncyBall = () => {
   const [ballPosition, setBallPosition] = useState(INITIAL_BALL_POSITION);
@@ -42,12 +42,18 @@ const BouncyBall = () => {
   }, [ballPosition, startGame]);
 
   useEffect(() => {
-    if (score <= 2) {
-      setWallSpeed(5);
-    } else if (score > 2 && score <= 4) {
-      setWallSpeed(6);
-    } else if (score > 4) {
-      setWallSpeed(20);
+    if (score <= 5) {
+      setWallSpeed(10);
+    } else if (score > 5 && score <= 10) {
+      setWallSpeed(11);
+    } else if (score > 10 && score <= 15) {
+      setWallSpeed(12);
+    } else if (score > 15 && score <= 20) {
+      setWallSpeed(13);
+    } else if (score > 20 && score <= 25) {
+      setWallSpeed(14);
+    } else if (score > 25 && score <= 30) {
+      setWallSpeed(15);
     }
   }, [wallSpeed, score]);
 
@@ -81,7 +87,7 @@ const BouncyBall = () => {
       ballPosition >= GameHeight + GAME_PADDING - bottomWallHeight;
 
     if (
-      wallLeft >= 0 &&
+      wallLeft >= 20 &&
       wallLeft <= wallWidth &&
       (hasHitTopWall || hasHitBottomWall)
     ) {
@@ -128,6 +134,7 @@ const BouncyBall = () => {
 export default BouncyBall;
 
 const Ball = sc.div`
+    margin-left: 10px;
     position: absolute;
     background-color: red;
     height: ${(props) => props.size}px;
@@ -166,5 +173,6 @@ const Wall = sc.div`
 const H1 = sc.div`
     display: flex;
     justify-content: center;
-    padding-top: 130px;
+    padding-top: 75px;
+    font-size: 4rem;
 `;
