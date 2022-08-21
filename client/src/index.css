@@ -23,6 +23,7 @@ ul {
 }
 
 .btn {
+  margin-top: 2rem;
   padding: 12px;
   font-size: 1rem;
   text-transform: uppercase;
