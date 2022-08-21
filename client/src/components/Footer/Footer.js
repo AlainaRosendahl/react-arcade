@@ -8,7 +8,6 @@ import noah from "../../assets/img/noah.jpg";
 
 import {
   FaMailBulk,
-  FaPhone,
   FaFacebook,
   FaTwitter,
   FaLinkedin,
