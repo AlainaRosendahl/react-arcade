@@ -35,9 +35,9 @@ const colors = {
   128: { background: '#221e39', color: 'white' },
   256: { background: '#5472de', color: 'white' },
   512: { background: '#2e469e', color: 'white' },
-  1024: { background: '#e9406d', color: 'white', boxShadow: '0 0 30px 4px rgb(243 116 163 / 48%), inset 0 0 0 1px rgb(255 255 255 / 29%)' },
-  2048: { background: '#ffcf62', color: 'white', boxShadow: '0 0 30px 6px rgb(243 215 116 / 48%), inset 0 0 0 1px rgb(255 255 255 / 29%)' },
-  4096: { background: '#7de6dc', color: 'white', boxShadow: '0 0 30px 6px rgb(125 230 220 / 48%), inset 0 0 0 1px rgb(255 255 255 / 29%)' },
+  1024: { background: '#e9406d', color: 'white', boxShadow: '0 0 35px 4px rgb(243 116 163 / 48%), inset 0 0 0 1px rgb(255 255 255 / 35%)' },
+  2048: { background: '#ffcf62', color: 'white', boxShadow: '0 0 35px 6px rgb(243 215 116 / 48%), inset 0 0 0 1px rgb(255 255 255 / 35%)' },
+  4096: { background: '#7de6dc', color: 'white', boxShadow: '0 0 35px 6px rgb(125 230 220 / 48%), inset 0 0 0 1px rgb(255 255 255 / 35%)' },
   8192: { background: 'linear-gradient(45deg, rgb(252, 70, 107), rgb(63, 94, 251))', color: 'white', boxShadow: '0 0 30px 10px rgb(255 255 255 / 48%), inset 0 0 0 1px rgb(255 255 255 / 29%)' },
 };
 

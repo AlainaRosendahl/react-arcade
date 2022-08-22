@@ -4,11 +4,11 @@ export default function ScoreBoard({ score, bestScore }) {
     return (
         <Board>
             <div>
-                <label>SCORE</label>
+                <label>CURRENT SCORE</label>
                 <p>{score}</p>
             </div>
             <div>
-                <label>BEST</label>
+                <label>HIGH SCORE</label>
                 <p>{bestScore}</p>
             </div>
         </Board>

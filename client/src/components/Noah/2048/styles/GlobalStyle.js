@@ -6,3 +6,4 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 export default GlobalStyle;
+//commiting is awesome

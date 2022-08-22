@@ -174,7 +174,7 @@ const Container = styled.section`
     flex-direction: row;
     flex-wrap:wrap;
     border-radius: 10px;
-    background-color: #8796ce;
+    background-color: #3700B3;
     padding: var(--default_tile_margin);
     position: relative;
     overflow: hidden;
