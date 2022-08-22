@@ -1,39 +1,40 @@
-const { User } = require('../models');
-const { AuthenticationError } = require('apollo-server-express');
-const { signToken } = require('../utils/auth');
+const { Schema, model } = require('mongoose');
+const bcrypt = require('bcrypt');
 
-const resolvers = {
-    Query: {
-        me: async (parent, args, context) => {
-            if (context.user) {
-                const userData = await User.findOne({ _id: context.user._id })
-                .select('-__v -password')
-                return userData;
-            }
-            throw new AuthenticationError('Not logged in');
-        }
-    },
-    Mutation: {
-        addUser: async (parent, args) => {
-            const user = await User.create(args);
-            const token = signToken(user);
+const userSchema = new Schema(
+    {
+      username: {
+        type: String,
+        required: true,
+        unique: true,
+      },
+      email: {
+        type: String,
+        required: true,
+        unique: true,
+        match: [/.+@.+\..+/, 'Must use a valid email address'],
+      },
+      password: {
+        type: String,
+        required: true,
+      }
+    });
 
-            return { token, user };
-        },
-        login: async (parent, { email, password }) => {
-            const user = await User.findOne( { email });
-            if (!user) {
-                throw new AuthenticationError('Email not found')
-            }
-            const correctPw = await user.isCorrectPassword(password);
-            if(!correctPw) {
-                throw new AuthenticationError('Incorrect password')
-            }
-            
-            const token = signToken(user);
-            return { token, user };
-        },
+    // hash user password
+userSchema.pre('save', async function (next) {
+    if (this.isNew || this.isModified('password')) {
+      const saltRounds = 10;
+      this.password = await bcrypt.hash(this.password, saltRounds);
     }
+  
+    next();
+  });
+  
+  // custom method to compare and validate password for logging in
+  userSchema.methods.isCorrectPassword = async function (password) {
+    return bcrypt.compare(password, this.password);
   };
   
-  module.exports = resolvers;
+  const User = model('User', userSchema);
+
+  module.exports = User;
