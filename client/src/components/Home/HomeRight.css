@@ -1,0 +1,49 @@
+.game-mid {
+  width: 100%;
+  padding: 6rem 0;
+  background-color: black;
+}
+.game-container-mid {
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 6rem 0 6rem;
+}
+
+.right-home {
+  height: 100%;
+  width: 100%;
+  padding: 1rem;
+}
+.game-image {
+  height: 300px;
+}
+
+.left-home {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.info-container h1 {
+  font-size: 2rem;
+  padding-bottom: 0.7rem;
+}
+
+.info-container p {
+  font-size: 1.2rem;
+}
+
+.info-container {
+  padding-right: 10rem;
+  text-align: center;
+}
+
+@media screen and (max-width: 1040px) {
+  .info-container {
+    grid-template-columns: 1fr;
+  }
+}
