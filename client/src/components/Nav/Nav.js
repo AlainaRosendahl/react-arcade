@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./NavStyles.css";
 import { FaBars, FaTimes } from "react-icons/fa";
-import LoginForm from '../LoginForm';
-import SignUpForm from '../SignupForm';
 
 const Navbar = () => {
   const [click, setClick] = useState(false);
@@ -35,6 +33,12 @@ const Navbar = () => {
         </li>
         <li>
           <Link to="/Bryan">Bryan</Link>
+        </li>
+        <li>
+        <Link to="/Login" className="px-3 py-2 text-uppercase">Login</Link>
+        </li>
+        <li>
+        <Link to="/Signup" className="px-3 py-2 text-uppercase">Signup</Link>
         </li>
       </ul>
       <div className="nav-icon" onClick={handleClick}>
