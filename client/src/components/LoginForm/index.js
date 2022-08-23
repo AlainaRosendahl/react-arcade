@@ -1,84 +1,87 @@
 import React, { useState } from 'react';
-import Auth from '../../utils/auth';
-import { Form, Button, Alert } from 'react-bootstrap';
-import { LOGIN_USER } from '../../utils/mutations';
 import { useMutation } from '@apollo/react-hooks';
+import { LOGIN_USER } from '../../utils/mutations';
+import Auth from '../../utils/auth';
 
-const LoginForm = () => {
-  const [login, {error} ] = useMutation(LOGIN_USER);
-  const [userFormData, setUserFormData] = useState({ email: '', password: '' });
-  const [validated] = useState(false);
-  const [showAlert, setShowAlert] = useState(false);
+const Login = (props) => {
+  const [formState, setFormState] = useState({ email: '', password: '' });
 
-  const handleInputChange = (event) => {
+  const [login, { error }] = useMutation(LOGIN_USER);
+
+  // update state based on form input changes
+  const handleChange = (event) => {
     const { name, value } = event.target;
-    setUserFormData({ 
-      ...userFormData, 
-      [name]: value 
+
+    setFormState({
+      ...formState,
+      [name]: value,
     });
   };
 
+  // submit form
   const handleFormSubmit = async event => {
     event.preventDefault();
 
     try {
       const { data } = await login({
-        variables: {...userFormData} 
+        variables: { ...formState }
       });
+
       Auth.login(data.login.token);
     } catch (e) {
       console.error(e);
-      setShowAlert(true);
     }
 
-    setUserFormData({
-      username: '',
+    // clear form values
+    setFormState({
       email: '',
       password: '',
     });
   };
 
   return (
-    <>
-      <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
-        <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
-          Something went wrong with your login credentials!
-        </Alert>
-        <Form.Group>
-          <Form.Label htmlFor='email'>Email</Form.Label>
-          <Form.Control
-            type='text'
-            placeholder='Your email'
-            name='email'
-            onChange={handleInputChange}
-            value={userFormData.email}
-            required
-          />
-          <Form.Control.Feedback type='invalid'>Email is required!</Form.Control.Feedback>
-        </Form.Group>
+    <main className=''>
+      <div className='my-4 mx-2'>
+          <h4 className='text-uppercase'>Login</h4>
+          <div className=''>
+            <form onSubmit={handleFormSubmit}>
+              <div className="form-floating mb-3">
+              <input
+                className='form-control mb-4'
+                placeholder='email'
+                name='email'
+                type='email'
+                id='email'
+                value={formState.email}
+                onChange={handleChange}
+              />
+              <label for="email" class="form-label">Email: </label>
+              </div>
+              <div className="form-floating mb-3">
+              <input
+                className='form-control'
+                placeholder='******'
+                name='password'
+                type='password'
+                id='password'
+                value={formState.password}
+                onChange={handleChange}
+              />
+                            <label for="password" class="form-label">Password:</label>
+              </div>
 
-        <Form.Group>
-          <Form.Label htmlFor='password'>Password</Form.Label>
-          <Form.Control
-            type='password'
-            placeholder='Your password'
-            name='password'
-            onChange={handleInputChange}
-            value={userFormData.password}
-            required
-          />
-          <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
-        </Form.Group>
-        <Button
-          disabled={!(userFormData.email && userFormData.password)}
-          type='submit'
-          variant='success'>
-          Submit
-        </Button>
-        {error && <div>Login failed</div>}
-      </Form>
-    </>
+              <div className="d-grid ga-2 d-md-flex justify-content-end pt-3">
+                <button className='btn btn-dark btn-primary px-4' type='submit'>
+                  Submit
+                </button>
+              </div>
+
+            </form>
+            {error && <div>Login failed</div>}
+          </div>
+        </div>
+    </main>
   );
 };
 
-export default LoginForm;
+export default Login;
