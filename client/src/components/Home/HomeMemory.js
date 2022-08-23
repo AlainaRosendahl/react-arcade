@@ -30,7 +30,7 @@ const HomeMemory = () => {
               adipisci amet laborum. Perspiciatis minima nesciunt dolorem!
               Officiis iure rerum voluptates a cumque velit{" "}
             </p>
-            <button type="button" class="btn btn-primary" onClick="">
+            <button type="button" className="btn btn-primary" onClick="">
               Meme Memory
             </button>
           </div>
