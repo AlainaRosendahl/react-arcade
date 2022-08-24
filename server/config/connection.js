@@ -6,5 +6,6 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/react-arcade', 
   useCreateIndex: true,
   useFindAndModify: false
 });
+//why noit
 
 module.exports = mongoose.connection;
