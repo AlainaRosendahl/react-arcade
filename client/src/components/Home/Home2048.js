@@ -1,5 +1,6 @@
 import React from "react";
 import Game2048 from "../../assets/img/2048.png";
+import { Link } from "react-router-dom";
 
 import "./HomeRight.css";
 
@@ -25,8 +26,8 @@ const Home2048 = () => {
               adipisci amet laborum. Perspiciatis minima nesciunt dolorem!
               Officiis iure rerum voluptates a cumque velit{" "}
             </p>
-            <button type="button" class="btn btn-primary" onClick="">
-              2048
+            <button type="button" className="btn btn-primary">
+              <Link to="/noah"> 2048</Link>
             </button>
           </div>
           <div className="right-home">

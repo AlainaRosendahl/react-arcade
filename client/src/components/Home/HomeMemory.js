@@ -1,5 +1,6 @@
 import React from "react";
 import memory from "../../assets/img/memory.png";
+import { Link } from "react-router-dom";
 
 import "./homeLeft.css";
 
@@ -30,8 +31,8 @@ const HomeMemory = () => {
               adipisci amet laborum. Perspiciatis minima nesciunt dolorem!
               Officiis iure rerum voluptates a cumque velit{" "}
             </p>
-            <button type="button" className="btn btn-primary" onClick="">
-              Meme Memory
+            <button type="button" className="btn btn-primary">
+              <Link to="/alaina">Meme Memory</Link>
             </button>
           </div>
         </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import BouncyBall from "../../assets/img/bb.png";
+import { Link } from "react-router-dom";
 
 import "./homeLeft.css";
 
@@ -30,8 +31,8 @@ const BBall = () => {
               adipisci amet laborum. Perspiciatis minima nesciunt dolorem!
               Officiis iure rerum voluptates a cumque velit{" "}
             </p>
-            <button type="button" class="btn btn-primary" onClick="">
-              Bouncy Ball
+            <button type="button" className="btn btn-primary">
+              <Link to="/bryan">Bouncy Ball</Link>
             </button>
           </div>
         </div>
