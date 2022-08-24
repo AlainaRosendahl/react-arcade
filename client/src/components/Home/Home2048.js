@@ -11,19 +11,7 @@ const Home2048 = () => {
           <div className="info-container">
             <h1>2048</h1>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
-              mollitia, molestiae quas vel sint commodi repudiandae consequuntur
-              voluptatum laborum numquam blanditiis harum quisquam eius sed odit
-              fugiat iusto fuga praesentium optio, eaque rerum! Provident
-              similique accusantium nemo autem. Veritatis obcaecati tenetur iure
-              eius earum ut molestias architecto voluptate aliquam nihil,
-              eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit,
-              tenetur error, harum nesciunt ipsum debitis quas aliquid.
-              Reprehenderit, quia. Quo neque error repudiandae fuga? Ipsa
-              laudantium molestias eos sapiente officiis modi at sunt excepturi
-              expedita sint? Sed quibusdam recusandae alias error harum maxime
-              adipisci amet laborum. Perspiciatis minima nesciunt dolorem!
-              Officiis iure rerum voluptates a cumque velit{" "}
+              2048 is a game with one objective. Get one of the tiles to add up to the number 2048 before all of the tiles are filled up. Every turn a new tile will be added with a number from 2 to 8. Can you get the new highscore?{" "}
             </p>
             <button type="button" class="btn btn-primary" onClick="">
               2048

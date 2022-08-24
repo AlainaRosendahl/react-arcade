@@ -86,25 +86,25 @@ const Footer = () => {
             </div>
           </div>
           <div className="dev-container">
-            <h4>Noah</h4>
+            <h4>Noah Savino</h4>
             <div>
               <img className="dev-img" src={noah} alt="developer" />
             </div>
 
             <div className="socials">
-              <a href="https://github.com/" rel="noreferrer" target="_blank">
+              <a href="https://github.com/LilCalc" rel="noreferrer" target="_blank">
                 <FaGithub
                   size={30}
                   style={{ color: "#fff", marginRight: "2rem" }}
                 />
               </a>
-              <a href="https://twitter.com/" rel="noreferrer" target="_blank">
+              {/* <a href="https://twitter.com/" rel="noreferrer" target="_blank">
                 <FaTwitter
                   size={30}
                   style={{ color: "#fff", marginRight: "2rem" }}
                 />
-              </a>
-              <a href="https://linkedin.com/" rel="noreferrer" target="_blank">
+              </a> */}
+              <a href="https://www.linkedin.com/in/noah-savino-741ba9204/" rel="noreferrer" target="_blank">
                 <FaLinkedin
                   size={30}
                   style={{ color: "#fff", marginRight: "2rem" }}
@@ -113,7 +113,7 @@ const Footer = () => {
             </div>
             <div className="dev-email">
               <a
-                href="mailto:bwilk483@gmail.com"
+                href="mailto:noahsavinois@gmail.com"
                 rel="noreferrer"
                 target="_blank"
               >
@@ -121,7 +121,7 @@ const Footer = () => {
                   size={30}
                   style={{ color: "#fff", marginRight: "2rem" }}
                 />
-                YOUR EMAIL HERE AND ABOVE IN HREF
+                noahsavinois@gmail.com
               </a>
             </div>
           </div>
