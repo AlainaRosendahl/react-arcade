@@ -4,12 +4,12 @@ import SingleCard from './components/SingleCard';
 import { useState } from 'react';
 // import sadcat from '../../assets/img/sad-cat.png'
 const cardImages = [
-  { src: "/img/sad-cat.png", matched: false },
-  { src: "/img/spongebob.png", matched: false },
-  { src: "/img/spongebob2.png", matched: false },
-  { src: "/img/what.png", matched: false },
-  { src: "/img/wasnt-me.png", matched: false },
-  { src: "/img/mike-wasowski.png", matched: false },
+  { src: "assets/img/sad-cat.png", matched: false },
+  { src: "assets/img/spongebob.png", matched: false },
+  { src: "assets/img/spongebob2.png", matched: false },
+  { src: "assets/img/what.png", matched: false },
+  { src: "assets/img/wasnt-me.png", matched: false },
+  { src: "assets/img/mike-wasowski.png", matched: false },
 ];
 
 const MemeMemory = () => {
