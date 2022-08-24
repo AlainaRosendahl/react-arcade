@@ -3,23 +3,22 @@ const path = require("path"); // import path (to access file and directory paths
 const { authMiddleware } = require("./utils/auth");
 
 // import Apollo Server
-const { ApolloServer } = require('apollo-server-express');
+const { ApolloServer } = require("apollo-server-express");
 
 // import our typeDefs and resolvers
-const { typeDefs, resolvers } = require('./schemas');
-const db = require('./config/connection');
+const { typeDefs, resolvers } = require("./schemas");
+const db = require("./config/connection");
 
+const PORT = process.env.PORT || 3001; // define local port
 
-// const PORT = process.env.PORT || 3001; // define local port
-const PORT = 3001;
 const app = express(); // instantiate express server
 
 // create a new Apollo Server and pass in our schema data
 const server = new ApolloServer({
   typeDefs,
   resolvers,
-  context: authMiddleware
-}); 
+  context: authMiddleware,
+});
 
 // integrate the Apollo server with express application as middleware
 server.applyMiddleware({ app });
@@ -32,7 +31,7 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../client/build")));
 }
 
-// BUILD FILE NOT CREATED YET***** 
+// BUILD FILE NOT CREATED YET*****
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../client/build/index.html"));
 });

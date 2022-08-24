@@ -12,7 +12,12 @@
   "license": "ISC",
   "dependencies": {
     "apollo-server-express": "^2.19.2",
+<<<<<<< HEAD
     "bcrypt": "^5.0.1",
+=======
+    "bcrypt": "^5.0.0",
+    "concurrently": "^7.3.0",
+>>>>>>> main
     "faker": "^5.2.0",
     "if-env": "^1.0.4",
     "jsonwebtoken": "^8.5.1",
