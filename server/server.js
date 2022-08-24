@@ -10,8 +10,7 @@ const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
 
 
-// const PORT = process.env.PORT || 3001; // define local port
-const PORT = 3001;
+const PORT = process.env.PORT || 3001; // define local port
 const app = express(); // instantiate express server
 
 // create a new Apollo Server and pass in our schema data
