@@ -31,7 +31,7 @@ const Footer = () => {
               style={{ color: "#fff", marginRight: "2rem" }}
             />
             <div>
-              <p>https://github.com/AlainaRosendahl/react-arcade</p>
+              <p>https://github.com/LilCalc/react-arcade</p>
             </div>
           </div>
           <div className="copy">
@@ -49,7 +49,7 @@ const Footer = () => {
               <img className="dev-img" src={alaina} alt="developer" />
             </div>
             <div className="socials">
-              <a href="https://github.com/" rel="noreferrer" target="_blank">
+              <a href="https://github.com/AlainaRosendahl" rel="noreferrer" target="_blank">
                 <FaGithub
                   size={30}
                   style={{
@@ -64,7 +64,7 @@ const Footer = () => {
                   style={{ color: "#fff", marginRight: "2rem" }}
                 />
               </a>
-              <a href="https://linkedin.com/" rel="noreferrer" target="_blank">
+              <a href="https://www.linkedin.com/in/alaina-rosendahl-181b85236/" rel="noreferrer" target="_blank">
                 <FaLinkedin
                   size={30}
                   style={{ color: "#fff", marginRight: "2rem" }}
@@ -73,7 +73,7 @@ const Footer = () => {
             </div>
             <div className="dev-email">
               <a
-                href="mailto:bwilk483@gmail.com"
+                href="mailto:elenarosendahl16@gmail.com"
                 rel="noreferrer"
                 target="_blank"
               >
@@ -81,7 +81,7 @@ const Footer = () => {
                   size={30}
                   style={{ color: "#fff", marginRight: "2rem" }}
                 />
-                YOUR EMAIL HERE AND ABOVE IN HREF
+                elenarosendahl16@gmail.com
               </a>
             </div>
           </div>
