@@ -98,12 +98,6 @@ const Footer = () => {
                   style={{ color: "#fff", marginRight: "2rem" }}
                 />
               </a>
-              {/* <a href="https://twitter.com/" rel="noreferrer" target="_blank">
-                <FaTwitter
-                  size={30}
-                  style={{ color: "#fff", marginRight: "2rem" }}
-                />
-              </a> */}
               <a href="https://www.linkedin.com/in/noah-savino-741ba9204/" rel="noreferrer" target="_blank">
                 <FaLinkedin
                   size={30}

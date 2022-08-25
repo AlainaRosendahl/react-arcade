@@ -14,21 +14,16 @@ const BBall = () => {
         </div>
         <div className="right-home">
           <div className="info-container">
-            <h1>2048</h1>
+            <h1>Bouncy Ball</h1>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
-              mollitia, molestiae quas vel sint commodi repudiandae consequuntur
-              voluptatum laborum numquam blanditiis harum quisquam eius sed odit
-              fugiat iusto fuga praesentium optio, eaque rerum! Provident
-              similique accusantium nemo autem. Veritatis obcaecati tenetur iure
-              eius earum ut molestias architecto voluptate aliquam nihil,
-              eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit,
-              tenetur error, harum nesciunt ipsum debitis quas aliquid.
-              Reprehenderit, quia. Quo neque error repudiandae fuga? Ipsa
-              laudantium molestias eos sapiente officiis modi at sunt excepturi
-              expedita sint? Sed quibusdam recusandae alias error harum maxime
-              adipisci amet laborum. Perspiciatis minima nesciunt dolorem!
-              Officiis iure rerum voluptates a cumque velit{" "}
+              Bouncy Ball is a game that is modeled from flappy bird and was
+              developed by Bryan Wilkerson. All you have to do is click on the
+              game and every thing will start running. If you don't click the
+              ball will drop and you click for it to go back up. Your goal is to
+              bounce the ball threw the gap in the wall without hitting a wall.
+              If you do that your score will go up. Try it out and see what your
+              high score will be.
+{" "}
             </p>
             <button type="button" class="btn btn-primary" onClick="">
               Bouncy Ball
