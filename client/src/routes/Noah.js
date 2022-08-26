@@ -10,5 +10,5 @@ const Bryan = () => {
     </div>
   );
 };
-
+//There are issues with the login, keep that in mind at all times.
 export default Bryan;

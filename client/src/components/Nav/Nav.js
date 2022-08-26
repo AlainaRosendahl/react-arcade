@@ -26,13 +26,13 @@ const Navbar = () => {
           <Link to="/">Home</Link>
         </li>
         <li>
-          <Link to="/Noah">Noah</Link>
+          <Link to="/Noah">2048</Link>
         </li>
         <li>
-          <Link to="/Alaina">Alaina</Link>
+          <Link to="/Alaina">Meme Memory</Link>
         </li>
         <li>
-          <Link to="/Bryan">Bryan</Link>
+          <Link to="/Bryan">Bouncy Ball</Link>
         </li>
         <li>
         <Link to="/Login" className="px-3 py-2 text-uppercase">Login</Link>
