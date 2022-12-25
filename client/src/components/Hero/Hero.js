@@ -10,6 +10,9 @@ const Hero = () => {
       <div className="hero-container">
         <img className="hero-img" src={heroImg} alt="Hero" />
       </div>
+      <div className="Rotating-container">
+        {/* Placeholder - test code for rotating container before implementation */}
+      </div>
     </div>
   );
 };
