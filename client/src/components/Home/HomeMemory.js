@@ -1,5 +1,5 @@
 import React from "react";
-import memory from "../../assets/img/memory.png";
+import memory from "../../assets/img/Memory2.png";
 
 import "./homeLeft.css";
 
